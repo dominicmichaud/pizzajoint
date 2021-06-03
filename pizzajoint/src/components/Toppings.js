@@ -64,8 +64,14 @@ const Toppings = ({ addTopping, pizza }) => {
       exit="exit"
       variants={containerVariants}
     >
-      <h3>Step 2: Choose Toppings</h3>
-      <ul>
+      <h3
+        data-testid="toppings-heading"
+      >
+        Step 2: Choose Toppings
+      </h3>
+      <ul
+        data-testid="toppings-list"
+      >
         {toppings.map(topping => {
           let spanClass = pizza.toppings.includes(topping) ? 'active' : '';
           return (
@@ -97,6 +103,7 @@ const Toppings = ({ addTopping, pizza }) => {
                   boxShadow: '0 0 8px rgb(255, 255, 255)',
                 }}
                 transition={{ type: 'tween' }}
+                data-testid="toppings-order-btn"
               >
                 Order
                 </motion.button>
