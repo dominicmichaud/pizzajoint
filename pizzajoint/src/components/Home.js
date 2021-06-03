@@ -48,10 +48,14 @@ const Home = () => {
       <h2>
         Welcome to Pizza Joint
       </h2>
-      <Link to="/base">
+      <Link
+        to="/base"
+        data-testid="home-link"
+      >
         <motion.button
           whileHover="hover"
           variants={buttonVariants}
+          data-testid="home-create-btn"
         >
           Create Your Pizza
         </motion.button>

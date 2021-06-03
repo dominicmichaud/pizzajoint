@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -56,8 +57,14 @@ const Base = ({ addBase, pizza }) => {
       exit="exit"
       variants={containerVariants}
     >
-      <h3>Step 1: Choose Your Base</h3>
-      <ul>
+      <h3
+        data-testid="base-heading"
+      >
+        Step 1: Choose Your Base
+      </h3>
+      <ul
+        data-testid="base-list"
+      >
         {bases.map(base => {
           let spanClass = pizza.base === base ? 'active' : '';
           return (
@@ -86,6 +93,7 @@ const Base = ({ addBase, pizza }) => {
                 boxShadow: '0 0 8px rgb(255, 255, 255)',
               }}
               transition={{ type: 'tween' }}
+              data-testid="base-next-btn"
             >
               Next
             </motion.button>
@@ -94,6 +102,11 @@ const Base = ({ addBase, pizza }) => {
       )}
     </motion.div>
   )
+}
+
+Base.propTypes = {
+  addBase: PropTypes.func.isRequired,
+  pizza: PropTypes.object.isRequired
 }
 
 export default Base;

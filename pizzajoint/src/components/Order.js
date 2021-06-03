@@ -53,16 +53,18 @@ const Order = ({ pizza, setShowModal }) => {
       exit="exit"
       variants={containerVariants}
     >
-      <h2>Thank you for your order :)</h2>
+      <h2 data-testid="order-heading">Thank you for your order :)</h2>
       <motion.p
         variants={childVariants}
+        data-testid="order-base-type"
       >
         You ordered a {pizza.base} pizza with:
       </motion.p>
       <motion.div
         variants={childVariants}
+        data-testid="order-toppings-list"
       >
-        {pizza.toppings.map(topping => <div key={topping}>{topping}</div>)}
+        {pizza.toppings.join(', ')}
       </motion.div>
     </motion.div>
   )

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import PropTypes from 'prop-types';
 
 const overlayVariants = {
     hidden: {
@@ -43,6 +44,7 @@ const Modal = ({ showModal, setShowModal }) => {
                         <p>How about making another pizza? ya&nbsp;fecking&nbsp;bastard!</p>
                         <Link
                             to="/"
+                            data-testid="modal-link-btn"
                         >
                             <button>Start again</button>
                         </Link>
@@ -51,6 +53,11 @@ const Modal = ({ showModal, setShowModal }) => {
             )}
         </AnimatePresence>
     )
+};
+
+Modal.propTypes = {
+    showModal: PropTypes.bool.isRequired,
+    setShowModal: PropTypes.func.isRequired,
 };
 
 export default Modal;
